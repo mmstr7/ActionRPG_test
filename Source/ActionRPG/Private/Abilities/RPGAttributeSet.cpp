@@ -180,7 +180,7 @@ void URPGAttributeSet::PostGameplayEffectExecute(const FGameplayEffectModCallbac
 				TargetCharacter->HandleDamage(LocalDamageDone, HitResult, SourceTags, SourceCharacter, SourceActor);
 
 				// Call for all health changes
-				TargetCharacter->HandleHealthChanged(-LocalDamageDone, SourceTags);
+				TargetCharacter->HandleHealthChanged(-LocalDamageDone, SourceTags, SourceCharacter );
 			}
 		}
 	}
@@ -193,7 +193,7 @@ void URPGAttributeSet::PostGameplayEffectExecute(const FGameplayEffectModCallbac
 		if (TargetCharacter)
 		{
 			// Call for all health changes
-			TargetCharacter->HandleHealthChanged(DeltaValue, SourceTags);
+			TargetCharacter->HandleHealthChanged(DeltaValue, SourceTags, nullptr );
 		}
 	}
 	else if (Data.EvaluatedData.Attribute == GetManaAttribute())

@@ -149,7 +149,7 @@ protected:
 	 * @param EventTags The gameplay tags of the event that changed mana
 	 */
 	UFUNCTION(BlueprintImplementableEvent)
-	void OnHealthChanged(float DeltaValue, const struct FGameplayTagContainer& EventTags);
+	void OnHealthChanged(float DeltaValue, const struct FGameplayTagContainer& EventTags, ARPGCharacterBase* SourceCharacter );
 
 	/**
 	 * Called when mana is changed, either from healing or from being used as a cost
@@ -190,7 +190,7 @@ protected:
 
 	// Called from RPGAttributeSet, these call BP events above
 	virtual void HandleDamage(float DamageAmount, const FHitResult& HitInfo, const struct FGameplayTagContainer& DamageTags, ARPGCharacterBase* InstigatorCharacter, AActor* DamageCauser);
-	virtual void HandleHealthChanged(float DeltaValue, const struct FGameplayTagContainer& EventTags);
+	virtual void HandleHealthChanged(float DeltaValue, const struct FGameplayTagContainer& EventTags, ARPGCharacterBase* SourceCharacter );
 	virtual void HandleManaChanged(float DeltaValue, const struct FGameplayTagContainer& EventTags);
 	virtual void HandleMoveSpeedChanged(float DeltaValue, const struct FGameplayTagContainer& EventTags);
 

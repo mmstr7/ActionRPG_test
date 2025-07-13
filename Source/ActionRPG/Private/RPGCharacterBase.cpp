@@ -385,12 +385,12 @@ void ARPGCharacterBase::HandleDamage(float DamageAmount, const FHitResult& HitIn
 	OnDamaged(DamageAmount, HitInfo, DamageTags, InstigatorPawn, DamageCauser);	
 }
 
-void ARPGCharacterBase::HandleHealthChanged(float DeltaValue, const struct FGameplayTagContainer& EventTags)
+void ARPGCharacterBase::HandleHealthChanged(float DeltaValue, const struct FGameplayTagContainer& EventTags, ARPGCharacterBase* SourceCharacter )
 {
 	// We only call the BP callback if this is not the initial ability setup
 	if (bAbilitiesInitialized)
 	{
-		OnHealthChanged(DeltaValue, EventTags);
+		OnHealthChanged(DeltaValue, EventTags, SourceCharacter );
 	}
 }
 
